@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REAT Api</title>
+    <script src="../../node_modules/axios/dist/axios.js"></script>
+</head>
+
+<body>
+    <button onclick="test1()">get</button>
+    <button onclick="test2()">post</button>
+    <button onclick="test3()">put</button>
+    <button onclick="test4()">delete</button>
+    <script>
+        let test1 = () => {
+            axios.get('http://localhost:3000/posts/1').then(res => {
+                console.log('/posts', res.data)
+            })
+        }
+        let test2 = () => {
+            axios.post('http://localhost:3000/posts', {
+                title: 'bioaot',
+                author: '789'
+            }).then(res => {
+                console.log('/posts', res.data)
+            })
+        }
+        let test3 = () => {
+            //修改 3号对象
+            axios.put('http://localhost:3000/posts/3', {
+                title: '修改',
+                author: '修改'
+            }).then(res => {
+                console.log('/posts', res.data)
+            })
+        }
+        let test4 = () => {
+            axios.delete('http://localhost:3000/posts/1').then(res => {
+                console.log('/posts', res.data)
+            })
+        }
+    </script>
+</body>
+
+</html>
